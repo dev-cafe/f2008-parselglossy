@@ -21,8 +21,6 @@ matrix:
         apt:
           packages:
             - cmake
-            - g++
-            - gcc
             - gfortran
     - os: osx
 
@@ -32,8 +30,6 @@ install:
   - pipenv run python --version
 
 before_script:
-  - test -n $CC && unset CC && export CC=gcc;
-  - test -n $CXX && unset CXX && export CXX=g++;
   - test -n $FC && unset FC && export FC=gfortran;
 
 script:
