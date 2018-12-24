@@ -4,9 +4,6 @@ sudo: false
 
 dist: xenial
 
-python:
-  - 3.6
-
 cache:
   timeout: 1000
   pip: true
@@ -17,12 +14,14 @@ matrix:
   fast_finish: true
   include:
     - os: linux
+      python: 3.6
       addons:
         apt:
           packages:
             - cmake
             - gfortran
     - os: osx
+      python: 3.6
 
 install:
   - ./.scripts/travis/install.sh
