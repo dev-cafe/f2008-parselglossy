@@ -4,6 +4,8 @@ sudo: false
 
 dist: xenial
 
+fast_finish: true
+
 cache:
   timeout: 1000
   pip: true
@@ -18,17 +20,20 @@ os:
   - linux
   - osx
 
-matrix:
-  fast_finish: true
-  include:
-    - os: linux
-      addons:
-        apt:
-          packages:
-            - gfortran
+addons:
+  apt:
+    packages:
+      - gfortran
+  homebrew:
+    packages:
+      - gcc
+      - cmake
+      - pipenv
+
+before_install:
+  - ./.scripts/travis/install.sh
 
 install:
-  - ./.scripts/travis/install.sh
   - pipenv install --three
   - pipenv run python --version
 
