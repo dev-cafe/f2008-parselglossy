@@ -10,18 +10,19 @@ cache:
   directories:
     - $HOME/Library/Caches/Homebrew
 
+env:
+  - WHICH=externalproject
+  - WHICH=fetchcontent
+
 matrix:
   fast_finish: true
   include:
     - os: linux
-      python: 3.6
       addons:
         apt:
           packages:
-            - cmake
             - gfortran
     - os: osx
-      python: 3.6
 
 install:
   - ./.scripts/travis/install.sh
@@ -32,6 +33,8 @@ before_script:
   - test -n $FC && unset FC && export FC=gfortran;
 
 script:
+  - export PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
+  - cd "$WHICH"
   - cmake -H. -Bbuild
   - cmake --build build -- VERBOSE=1
   # Testing
