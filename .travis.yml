@@ -4,8 +4,6 @@ sudo: false
 
 dist: xenial
 
-fast_finish: true
-
 cache:
   timeout: 1000
   pip: true
@@ -24,11 +22,16 @@ addons:
   apt:
     packages:
       - gfortran
+    update: true
   homebrew:
     packages:
       - gcc
       - cmake
       - pipenv
+    update: true
+
+matrix:
+  fast_finish: true
 
 before_install:
   - ./.scripts/travis/install.sh
