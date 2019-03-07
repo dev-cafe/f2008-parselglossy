@@ -21,11 +21,11 @@ else()
       -DENABLE_UNICODE=ON
       -DSKIP_DOC_GEN=ON
       -DENABLE_TESTS=OFF
-    #LOG_DOWNLOAD 1
-    #LOG_UPDATE 1
-    #LOG_CONFIGURE 1
-    #LOG_BUILD 1
-    #LOG_INSTALL 1
+    LOG_DOWNLOAD 1
+    LOG_UPDATE 1
+    LOG_CONFIGURE 1
+    LOG_BUILD 1
+    LOG_INSTALL 1
     )
   include(GNUInstallDirs)
   set(${_jsonfortran}_DIR
