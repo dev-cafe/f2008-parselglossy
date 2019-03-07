@@ -12,7 +12,8 @@ cache:
 
 env:
   - WHICH=externalproject
-  - WHICH=fetchcontent
+  # JSON package does not play well with FetchContent
+  #- WHICH=fetchcontent
 
 os:
   - linux
