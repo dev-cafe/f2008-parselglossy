@@ -42,6 +42,7 @@ install:
 
 before_script:
   - test -n $FC && unset FC && export FC=gfortran;
+  - cmake --version
 
 script:
   - export PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
